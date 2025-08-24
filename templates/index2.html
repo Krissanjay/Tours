@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for msg in messages %}
+{{ msg }}
+{% endfor %}
+<a href="create_tour/">Create recipe</a>
+
+<form role="search" method="POST">
+    {% csrf_token %}
+    <input type="search" name="search">
+    <button type="submit">search</button>
+</form>
+{% if data %}
+    {% for data in data %}
+<img src="{{ data.image1 }}" alt="no image" style="width:100px;height:200px">
+        <img src="{{ data.image2 }}" alt="no image" style="width:100px;height:200px">
+    <h1>{{data.name}}</h1>
+        <p>{{data.weather}}</p>
+<p>{{data.state}}</p>
+<p>{{data.district}}</p>
+<a href="{{data.link}}">Map</a>
+
+            <a href="detail_tour/{{data.id}}">Details</a>
+            <a href="update_tour/{{data.id}}/">Update</a>
+
+    {% endfor %}
+
+{% else %}
+
+    {% for original_data in original_data %}
+
+        <h1>{{original_data.name}}</h1>
+        <p>{{original_data.weather}}</p>
+        <p>{{original_data.state}}</p>
+            <p>{{original_data.district}}</p>
+        <a href="{{original_data.link}}">Map</a>
+
+
+
+        <img src="{{ original_data.image1 }}" alt="no image" style="width:100px;height:200px">
+        <img src="{{ original_data.image2 }}" alt="no image" style="width:100px;height:200px">
+        <a href="detail_tour/{{original_data.id}}/">Details</a>
+        <a href="update_tour/{{original_data.id}}">Update</a>
+<a href="delete_tour/{{original_data.id}}/" class="btn btn-danger">Delete</a><br>
+<p>{{original_data.description}}</p>
+
+{% endfor %}
+
+{% endif %}
+
+
+
+
+<!--{% for recipes in recipes %}-->
+<!--<h2>Delete</h2>-->
+<!--<h4>Do you want to delete recipe {{recipes.name}}</h4>-->
+<!--<a href="recipe_delete/{{recipes.id}}/" class="btn btn-danger">Delete</a>-->
+<!--{% endfor %}-->
+</body>
+</html>

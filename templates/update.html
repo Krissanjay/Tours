@@ -1,0 +1,116 @@
+
+
+{% extends 'details.html' %}
+{% load static %}
+{% block content %}
+{% for msg in messages %}
+{{ msg }}
+{% endfor %}
+<!--<form method="POST" action="" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit" value="update">-->
+<!--</form>-->
+
+ <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Update Tour </h4>
+                    </div>
+                    <div class="card-body">
+                        {% for msg in messages %}
+{{ msg }}
+{% endfor %}
+
+    <form method="POST" action="{% url 'update_tour' data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <td scope="col">
+                    <label>Name : </label>
+                </td>
+                <td scope="col">
+                    <input type="text" name="name" placeholder="Name" value="{{data.name}}"  required>
+                </td>
+            </tr>
+            <tr>
+                <td scope="col">Weather</td>
+                <td scope="col"><input type="text" name="weather" placeholder="weather" value="{{data.weather}}" required></td>
+            </tr>
+            <tr>
+                <td scope="col">State</td>
+                <td scope="col"><input type="text" name="state" placeholder="state" value="{{data.state}}" required></td>
+            </tr>
+            <tr>
+                <td scope="col">District</td>
+                <td scope="col"><input type="text" name="district" placeholder="district" value="{{data.district}}" required ></td></tr>
+            <tr>
+                <td scope="col">Image1</td>
+                <td scope="col"><input type="file" name="image1" placeholder="Image" value="{{data.image1}}" required></td>
+            </tr>
+            <tr>
+                <td scope="col">Image2</td>
+                <td scope="col"><input type="file" name="image2" placeholder="Image" value="{{data.image2}}" required></td>
+            </tr>
+            <tr>
+                <td scope="col">Googlemap Link</td>
+                <td scope="col"> <input type="text" name="link" placeholder="link" value="{{data.link}}" required></td>
+            </tr>
+            <tr>
+                <td scope="col">Description</td>
+                <td scope="col"><input type="text" name="description" placeholder="description" value="{{data.description}}" required></td>
+
+            </tr>
+            <tr>
+                <td scope="col"><input type="submit"></td>
+
+
+
+            </tr>
+            </tbody>
+
+        </table>
+
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--{% for msg in messages %}-->
+<!--{{ msg }}-->
+<!--{% endfor %}-->
+<!--<h1>update recipe </h1>-->
+<!--<form method="POST" action="{% url 'update_tour' data.id %}" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="text" name="name" placeholder="Name" value="{{data.name}}"  required>-->
+<!--    <input type="text" name="weather" placeholder="weather" value="{{data.weather}}" required>-->
+<!--    <input type="text" name="state" placeholder="state" value="{{data.state}}" required>-->
+
+<!--    <input type="text" name="district" placeholder="district" value="{{data.district}}" required >-->
+<!--    <input type="file" name="image1" placeholder="Image" value="{{data.image1}}" required>-->
+<!--    <input type="file" name="image2" placeholder="Image" value="{{data.image1}}" required>-->
+<!--    <input type="text" name="link" placeholder="link" value="{{data.link}}" required>-->
+<!--    <input type="text" name="description" placeholder="description" value="{{data.description}}" required>-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+
+<!--</body>-->
+
+
+<!--</html>-->

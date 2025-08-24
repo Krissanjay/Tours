@@ -1,0 +1,55 @@
+
+{% extends 'details.html' %}
+{% load static %}
+{% block content %}
+{% for msg in messages %}
+{{ msg }}
+{% endfor %}
+<!--<form method="POST" action="" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit" value="update">-->
+<!--</form>-->
+
+ <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Create Tour </h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="Create">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--{% for msg in messages %}-->
+<!--{{ msg }}-->
+<!--{% endfor %}-->
+<!--<form method="POST" action="" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit" value="update">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
